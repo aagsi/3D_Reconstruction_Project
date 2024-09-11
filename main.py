@@ -11,7 +11,9 @@ import threading
 from realsense_pipeline import RealSensePipeline
 from pointcloud_capture import PointCloudCapture
 from pointcloud_alignment import PointCloudAlignment
-from visualizer import Visualizer
+#from visualizer import Visualizer
+from visualizer import GeometryVisualizer as Visualizer
+
 from pointcloud_processing import PointCloudProcessing
 from normal_estimation import NormalEstimation
 from mesh_reconstruction import MeshReconstruction
@@ -32,17 +34,19 @@ def main():
     pipeline_manager.start_pipeline()
 
     # Start visualization
-    visualizer.initialize_visualizer()
+    #visualizer.initialize_visualizer()
 
     # Create combined point cloud to accumulate captured frames
     combined_pcd = o3d.geometry.PointCloud()
 
     # Main loop for capturing and aligning point clouds
     stop_event = threading.Event()
+
     scan_thread = threading.Thread(
         target=visualizer.scanning_loop,
-        args=(stop_event, pipeline_manager, point_cloud_capture, point_cloud_alignment, combined_pcd)
+        args=(stop_event, pipeline_manager, point_cloud_capture, point_cloud_alignment, combined_pcd, mesh_reconstruction)
     )
+
     scan_thread.start()
 
     input("Press Enter to stop scanning...\n")
