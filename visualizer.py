@@ -8,12 +8,15 @@ class GeometryVisualizer:
         Initializes the visualizer for displaying reconstructed geometry.
         """
         self.vis = o3d.visualization.Visualizer()
+        self.window_initialized = False  # Track if the visualizer window is initialized
 
     def initialize_visualizer(self):
         """
         Creates a window for visualizing 3D reconstructed geometry.
         """
-        self.vis.create_window(window_name="3D Reconstruction Progress", width=800, height=600)
+        if not self.window_initialized:  # Only initialize the window if not already done
+            self.vis.create_window(window_name="3D Reconstruction Progress", width=800, height=600)
+            self.window_initialized = True
 
     def update_visualizer(self, mesh):
         """
@@ -30,7 +33,9 @@ class GeometryVisualizer:
         """
         Closes the visualizer window.
         """
-        self.vis.destroy_window()
+        if self.window_initialized:  # Only destroy the window if it was initialized
+            self.vis.destroy_window()
+            self.window_initialized = False
 
     def highlight_sparse_regions(self, mesh, densities, threshold=0.01):
         """
@@ -58,7 +63,7 @@ class GeometryVisualizer:
         pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
         pcd.orient_normals_consistent_tangent_plane(100)
 
-    def scanning_loop(self, stop_event, pipeline_manager, point_cloud_capture, point_cloud_alignment, combined_pcd, mesh_reconstruction):
+    def scanning_loop(self, stop_event, pipeline_manager, point_cloud_capture, point_cloud_alignment, combined_pcd, mesh_reconstruction, max_frames=10):
         """
         Scanning loop to capture point clouds, reconstruct geometry, and update the visualizer in real-time.
         This method runs in a separate thread.
@@ -69,8 +74,10 @@ class GeometryVisualizer:
         :param point_cloud_alignment: The PointCloudAlignment object used to align point clouds.
         :param combined_pcd: The combined point cloud that will accumulate all frames.
         :param mesh_reconstruction: The mesh reconstruction object.
+        :param max_frames: The maximum number of frames to accumulate in the combined point cloud.
         """
         self.initialize_visualizer()  # Initialize visualizer at the start
+        frame_count = 0
 
         while not stop_event.is_set():
             # Capture point cloud from the camera
@@ -87,6 +94,11 @@ class GeometryVisualizer:
                     # Align the captured frame with the accumulated point cloud
                     pcd_frame_aligned = point_cloud_alignment.align_point_clouds(pcd_frame, combined_pcd)
                     combined_pcd += pcd_frame_aligned
+
+                # Ensure we don't accumulate too many frames to avoid excessive memory use
+                frame_count += 1
+                if frame_count > max_frames:
+                    combined_pcd = combined_pcd.select_by_index(range(len(combined_pcd.points) // 2, len(combined_pcd.points)))
 
                 # **Estimate normals for the combined point cloud**
                 self.estimate_normals(combined_pcd)
