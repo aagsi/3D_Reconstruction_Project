@@ -16,11 +16,13 @@ class Visualizer:
 
     def update_visualizer(self, point_cloud):
         """
-        Updates the visualizer with the new point cloud.
+        Updates the visualizer with the new point cloud. Clears previous geometries to prevent memory buildup.
 
         :param point_cloud: The point cloud to display.
         """
-        self.vis.update_geometry(point_cloud)
+        # Clear the existing geometry to avoid memory issues
+        self.vis.clear_geometries()
+        self.vis.add_geometry(point_cloud)
         self.vis.poll_events()
         self.vis.update_renderer()
 
@@ -41,6 +43,8 @@ class Visualizer:
         :param point_cloud_alignment: The PointCloudAlignment object used to align point clouds.
         :param combined_pcd: The combined point cloud that will accumulate all frames.
         """
+        self.initialize_visualizer()  # Initialize visualizer at the start
+
         while not stop_event.is_set():
             # Capture point cloud from the camera
             pcd_frame = point_cloud_capture.capture_point_cloud(pipeline_manager.pipeline)
@@ -49,9 +53,9 @@ class Visualizer:
                 print(f"Captured point cloud with {len(pcd_frame.points)} points.")
 
                 if len(combined_pcd.points) == 0:
+                    # Initialize combined point cloud with the first frame
                     combined_pcd.points = pcd_frame.points
                     combined_pcd.colors = pcd_frame.colors
-                    self.vis.add_geometry(combined_pcd)
                 else:
                     # Align the captured frame with the accumulated point cloud
                     pcd_frame_aligned = point_cloud_alignment.align_point_clouds(pcd_frame, combined_pcd)
@@ -62,6 +66,9 @@ class Visualizer:
             else:
                 print("No valid point cloud captured, skipping frame.")
 
-            # Free memory
+            # Clear any unused memory to prevent memory buildup
             gc.collect()
+
+        # Destroy the visualizer when the loop is stopped
+        self.destroy_visualizer()
 
