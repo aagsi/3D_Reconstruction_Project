@@ -14,7 +14,10 @@ from pointcloud_alignment import PointCloudAlignment
 #from visualizer import Visualizer
 from visualizer import GeometryVisualizer as Visualizer
 
-from pointcloud_processing import PointCloudProcessing
+#from pointcloud_processing import PointCloudProcessing
+from pointcloud_processing import PointCloudProcessingWithCUDA
+
+
 from normal_estimation import NormalEstimation
 from mesh_reconstruction import MeshReconstruction
 from mesh_saving import MeshSaving
@@ -25,7 +28,7 @@ def main():
     point_cloud_capture = PointCloudCapture()
     point_cloud_alignment = PointCloudAlignment()
     visualizer = Visualizer()
-    point_cloud_processing = PointCloudProcessing()
+    point_cloud_processing = PointCloudProcessingWithCUDA()
     normal_estimation = NormalEstimation()
     mesh_reconstruction = MeshReconstruction()
     mesh_saving = MeshSaving()

@@ -1,0 +1,18 @@
+git add .
+git commit -m "Deleted old files and added new ones"
+git remote set-url origin git@github.com:aagsi/3D_Reconstruction_Project.git
+git push origin main
+
+
+Alternatively, Consider Using SSH Keys (for password-less push):
+git remote set-url origin git@github.com:aagsi/3D_Reconstruction_Project.git
+git push origin main
+ssh-keygen -t ed25519 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+Go to your GitHub account and navigate to Settings > SSH and GPG keys > New SSH Key.
+Paste the key you copied and give it a title, then click Add SSH key.
+git remote set-url origin git@github.com:aagsi/3D_Reconstruction_Project.git
+git push origin main
+

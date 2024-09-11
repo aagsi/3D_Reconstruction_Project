@@ -3,18 +3,19 @@ import numpy as np
 import gc
 
 class GeometryVisualizer:
-    def __init__(self):
+    def __init__(self, device="CUDA:0"):
         """
-        Initializes the visualizer for displaying reconstructed geometry.
+        Initializes the visualizer for displaying reconstructed geometry and sets up the GPU device.
         """
         self.vis = o3d.visualization.Visualizer()
-        self.window_initialized = False  # Track if the visualizer window is initialized
+        self.window_initialized = False
+        self.device = o3d.core.Device(device)  # GPU device initialization for CUDA
 
     def initialize_visualizer(self):
         """
         Creates a window for visualizing 3D reconstructed geometry.
         """
-        if not self.window_initialized:  # Only initialize the window if not already done
+        if not self.window_initialized:
             self.vis.create_window(window_name="3D Reconstruction Progress", width=800, height=600)
             self.window_initialized = True
 
@@ -33,7 +34,7 @@ class GeometryVisualizer:
         """
         Closes the visualizer window.
         """
-        if self.window_initialized:  # Only destroy the window if it was initialized
+        if self.window_initialized:
             self.vis.destroy_window()
             self.window_initialized = False
 
@@ -57,11 +58,15 @@ class GeometryVisualizer:
 
     def estimate_normals(self, pcd):
         """
-        Estimate normals for the point cloud.
+        Estimate normals for the point cloud using GPU acceleration (CUDA).
+
         :param pcd: The point cloud to estimate normals for.
         """
-        pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
-        pcd.orient_normals_consistent_tangent_plane(100)
+        # Convert the point cloud to a CUDA-enabled point cloud
+        pcd_cuda = o3d.t.geometry.PointCloud.from_legacy(pcd, o3d.core.Dtype.Float32, self.device)
+        pcd_cuda.estimate_normals(max_nn=50, radius=0.05)  # Use CUDA for normal estimation
+        pcd_cuda.orient_normals_consistent_tangent_plane(100)
+        return pcd_cuda.to_legacy()  # Convert back to legacy format for further processing
 
     def scanning_loop(self, stop_event, pipeline_manager, point_cloud_capture, point_cloud_alignment, combined_pcd, mesh_reconstruction, max_frames=10):
         """
@@ -91,20 +96,15 @@ class GeometryVisualizer:
                     combined_pcd.points = pcd_frame.points
                     combined_pcd.colors = pcd_frame.colors
                 else:
-                    # Align the captured frame with the accumulated point cloud
+                    # Align the captured frame with the accumulated point cloud using GPU resources
                     pcd_frame_aligned = point_cloud_alignment.align_point_clouds(pcd_frame, combined_pcd)
                     combined_pcd += pcd_frame_aligned
 
-                # Ensure we don't accumulate too many frames to avoid excessive memory use
-                frame_count += 1
-                if frame_count > max_frames:
-                    combined_pcd = combined_pcd.select_by_index(range(len(combined_pcd.points) // 2, len(combined_pcd.points)))
-
-                # **Estimate normals for the combined point cloud**
-                self.estimate_normals(combined_pcd)
+                # Estimate normals using GPU (CUDA)
+                combined_pcd_with_normals = self.estimate_normals(combined_pcd)
 
                 # Reconstruct geometry (mesh) from the combined point cloud
-                mesh, densities = mesh_reconstruction.reconstruct_mesh(combined_pcd)
+                mesh, densities = mesh_reconstruction.reconstruct_mesh(combined_pcd_with_normals)
 
                 # Highlight regions with gaps or ambiguities (sparse areas)
                 mesh_with_highlighted_gaps = self.highlight_sparse_regions(mesh, densities)
