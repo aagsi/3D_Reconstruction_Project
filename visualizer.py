@@ -68,9 +68,9 @@ class GeometryVisualizer:
         pcd_cuda.orient_normals_consistent_tangent_plane(100)
         return pcd_cuda.to_legacy()  # Convert back to legacy format for further processing
 
-    def scanning_loop(self, stop_event, pipeline_manager, point_cloud_capture, point_cloud_alignment, combined_pcd, mesh_reconstruction, max_frames=10):
+    def scanning_loop(self, stop_event, pipeline_manager, point_cloud_capture, point_cloud_alignment, combined_pcd, mesh_reconstruction, visualize=False, max_frames=10):
         """
-        Scanning loop to capture point clouds, reconstruct geometry, and update the visualizer in real-time.
+        Scanning loop to capture point clouds, reconstruct geometry, and optionally update the visualizer in real-time.
         This method runs in a separate thread.
 
         :param stop_event: A threading event that signals when to stop the scanning loop.
@@ -79,9 +79,12 @@ class GeometryVisualizer:
         :param point_cloud_alignment: The PointCloudAlignment object used to align point clouds.
         :param combined_pcd: The combined point cloud that will accumulate all frames.
         :param mesh_reconstruction: The mesh reconstruction object.
+        :param visualize: A flag to determine whether or not to update the visualizer.
         :param max_frames: The maximum number of frames to accumulate in the combined point cloud.
         """
-        self.initialize_visualizer()  # Initialize visualizer at the start
+        if visualize:
+            self.initialize_visualizer()  # Initialize visualizer if needed
+
         frame_count = 0
 
         while not stop_event.is_set():
@@ -106,17 +109,19 @@ class GeometryVisualizer:
                 # Reconstruct geometry (mesh) from the combined point cloud
                 mesh, densities = mesh_reconstruction.reconstruct_mesh(combined_pcd_with_normals)
 
-                # Highlight regions with gaps or ambiguities (sparse areas)
-                mesh_with_highlighted_gaps = self.highlight_sparse_regions(mesh, densities)
+                if visualize:
+                    # Highlight regions with gaps or ambiguities (sparse areas)
+                    mesh_with_highlighted_gaps = self.highlight_sparse_regions(mesh, densities)
 
-                # Update the visualizer with the newly reconstructed mesh
-                self.update_visualizer(mesh_with_highlighted_gaps)
+                    # Update the visualizer with the newly reconstructed mesh
+                    self.update_visualizer(mesh_with_highlighted_gaps)
             else:
                 print("No valid point cloud captured, skipping frame.")
 
             # Free memory
             gc.collect()
 
-        # Destroy the visualizer when the loop is stopped
-        self.destroy_visualizer()
+        if visualize:
+            # Destroy the visualizer when the loop is stopped
+            self.destroy_visualizer()
 

@@ -31,16 +31,26 @@ class PointCloudCapture:
         depth_image = np.asanyarray(depth_frame.get_data())
         color_image = np.asanyarray(color_frame.get_data())
 
+        # Capture point cloud from depth frame
         points = self.pc.calculate(depth_frame)
         self.pc.map_to(color_frame)
 
         vtx = np.asanyarray(points.get_vertices()).view(np.float32).reshape(-1, 3)
+        color_image = color_image.reshape(-1, 3) / 255.0
+
+        # Create Open3D point cloud
         pcd_frame = o3d.geometry.PointCloud()
         pcd_frame.points = o3d.utility.Vector3dVector(vtx)
-        pcd_frame.colors = o3d.utility.Vector3dVector(color_image.reshape(-1, 3) / 255.0)
+        pcd_frame.colors = o3d.utility.Vector3dVector(color_image)
 
+        # Convert to CUDA-enabled point cloud
         pcd_frame_cuda = o3d.t.geometry.PointCloud.from_legacy(pcd_frame, o3d.core.Dtype.Float32, self.device)
+
+        # Downsample using CUDA
         pcd_frame_cuda = pcd_frame_cuda.voxel_down_sample(self.voxel_size)
 
-        return pcd_frame_cuda.to_legacy()
+        # Convert back to legacy format
+        pcd_frame_legacy = pcd_frame_cuda.to_legacy()
+
+        return pcd_frame_legacy
 
