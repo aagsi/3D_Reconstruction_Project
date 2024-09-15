@@ -114,7 +114,7 @@ def main():
     cam2.start()
     
     # Load stereo calibration parameters
-    calibration_file = 'jetson_stereo_8MP_calibration.npz'  # Updated calibration file name
+    calibration_file = 'jetson_stereo_8MP.npz'  # Updated calibration file name
     calibration_file_c1 = 'jetson_stereo_8MPc1.npz'
     calibration_file_c2 = 'jetson_stereo_8MPc2.npz'
     
@@ -122,7 +122,7 @@ def main():
     if not (os.path.exists(calibration_file) and 
             os.path.exists(calibration_file_c1) and 
             os.path.exists(calibration_file_c2)):
-        print("Calibration files not found. Please ensure that 'jetson_stereo_8MP_calibration.npz', 'jetson_stereo_8MPc1.npz', and 'jetson_stereo_8MPc2.npz' are available.")
+        print("Calibration files not found. Please ensure that 'jetson_stereo_8MP.npz', 'jetson_stereo_8MPc1.npz', and 'jetson_stereo_8MPc2.npz' are available.")
         cam1.stop()
         cam2.stop()
         cam1.release()
