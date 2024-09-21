@@ -8,7 +8,7 @@ import glob
 import Camera.jetsonCam as jetCam
 
 def stereoCalibrateCamera(camera_c1, camera_c2, camera_name, chessboard_box_size=47, 
-                          chessboard_grid_size=(7,7), number_of_frames=50):
+                          chessboard_grid_size=(7,7), number_of_frames=10):
     """
     Perform stereo camera calibration with interactive control for block size and min disparity.
 
