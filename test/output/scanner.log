@@ -1,0 +1,257 @@
+[2024-09-26 17:37:14,225] INFO: 3D Scanning started at 2024-09-26 17:37:14
+[2024-09-26 17:37:14,467] INFO: Camera intrinsics retrieved successfully.
+[2024-09-26 17:37:14,469] INFO: Scanning started. Press Enter to stop...
+[2024-09-26 17:37:15,756] INFO: Current FPS: 0.78
+[2024-09-26 17:37:17,657] INFO: Current FPS: 1.05
+[2024-09-26 17:37:18,715] INFO: Current FPS: 0.95
+[2024-09-26 17:37:20,709] INFO: Current FPS: 1.00
+[2024-09-26 17:37:22,629] INFO: Current FPS: 1.04
+[2024-09-26 17:37:24,564] INFO: Current FPS: 1.03
+[2024-09-26 17:37:26,444] INFO: Current FPS: 1.06
+[2024-09-26 17:37:28,296] INFO: Current FPS: 1.08
+[2024-09-26 17:37:30,138] INFO: Current FPS: 1.09
+[2024-09-26 17:37:31,960] INFO: Current FPS: 1.10
+[2024-09-26 17:37:33,778] INFO: Current FPS: 1.10
+[2024-09-26 17:37:35,581] INFO: Current FPS: 1.11
+[2024-09-26 17:37:37,361] INFO: Current FPS: 1.12
+[2024-09-26 17:37:39,157] INFO: Current FPS: 1.11
+[2024-09-26 17:37:40,948] INFO: Current FPS: 1.12
+[2024-09-26 17:37:42,758] INFO: Current FPS: 1.10
+[2024-09-26 17:37:44,588] INFO: Current FPS: 1.09
+[2024-09-26 17:37:46,406] INFO: Current FPS: 1.10
+[2024-09-26 17:37:48,233] INFO: Current FPS: 1.09
+[2024-09-26 17:37:50,109] INFO: Current FPS: 1.07
+[2024-09-26 17:37:51,996] INFO: Current FPS: 1.06
+[2024-09-26 17:37:53,859] INFO: Current FPS: 1.07
+[2024-09-26 17:37:55,725] INFO: Current FPS: 1.07
+[2024-09-26 17:37:57,625] INFO: Current FPS: 1.05
+[2024-09-26 17:37:59,611] INFO: Current FPS: 1.01
+[2024-09-26 17:38:01,520] INFO: Current FPS: 1.05
+[2024-09-26 17:38:03,453] INFO: Current FPS: 1.03
+[2024-09-26 17:38:04,517] INFO: Current FPS: 0.94
+[2024-09-26 17:38:05,590] INFO: Current FPS: 0.93
+[2024-09-26 17:38:06,752] INFO: Current FPS: 0.86
+[2024-09-26 17:38:07,833] INFO: Current FPS: 0.93
+[2024-09-26 17:38:09,016] INFO: Current FPS: 0.85
+[2024-09-26 17:38:10,124] INFO: Current FPS: 0.90
+[2024-09-26 17:38:11,224] INFO: Current FPS: 0.91
+[2024-09-26 17:38:12,330] INFO: Current FPS: 0.90
+[2024-09-26 17:38:13,434] INFO: Current FPS: 0.91
+[2024-09-26 17:38:14,625] INFO: Current FPS: 0.84
+[2024-09-26 17:38:15,756] INFO: Current FPS: 0.88
+[2024-09-26 17:38:16,872] INFO: Current FPS: 0.90
+[2024-09-26 17:38:17,980] INFO: Current FPS: 0.90
+[2024-09-26 17:38:19,087] INFO: Current FPS: 0.90
+[2024-09-26 17:38:20,204] INFO: Current FPS: 0.90
+[2024-09-26 17:38:21,379] INFO: Current FPS: 0.85
+[2024-09-26 17:38:22,491] INFO: Current FPS: 0.90
+[2024-09-26 17:38:23,712] INFO: Current FPS: 0.82
+[2024-09-26 17:38:24,816] INFO: Current FPS: 0.91
+[2024-09-26 17:38:25,916] INFO: Current FPS: 0.91
+[2024-09-26 17:38:27,021] INFO: Current FPS: 0.91
+[2024-09-26 17:38:28,144] INFO: Current FPS: 0.89
+[2024-09-26 17:38:29,249] INFO: Current FPS: 0.90
+[2024-09-26 17:38:30,362] INFO: Current FPS: 0.90
+[2024-09-26 17:38:31,473] INFO: Current FPS: 0.90
+[2024-09-26 17:38:32,585] INFO: Current FPS: 0.90
+[2024-09-26 17:38:33,712] INFO: Current FPS: 0.89
+[2024-09-26 17:38:34,888] INFO: Current FPS: 0.85
+[2024-09-26 17:38:35,995] INFO: Current FPS: 0.90
+[2024-09-26 17:38:37,073] INFO: Current FPS: 0.93
+[2024-09-26 17:38:38,153] INFO: Current FPS: 0.93
+[2024-09-26 17:38:39,280] INFO: Current FPS: 0.89
+[2024-09-26 17:38:40,431] INFO: Current FPS: 0.87
+[2024-09-26 17:38:41,486] INFO: Current FPS: 0.95
+[2024-09-26 17:38:42,549] INFO: Current FPS: 0.94
+[2024-09-26 17:38:43,032] INFO: Scanning stopped.
+[2024-09-26 17:38:43,033] WARNING: Missing files for frame 0, skipping.
+[2024-09-26 17:38:43,033] WARNING: Missing files for frame 1, skipping.
+[2024-09-26 17:38:43,033] WARNING: Missing files for frame 2, skipping.
+[2024-09-26 17:38:43,033] WARNING: Missing files for frame 3, skipping.
+[2024-09-26 17:38:43,034] WARNING: Missing files for frame 4, skipping.
+[2024-09-26 17:38:43,034] WARNING: Missing files for frame 5, skipping.
+[2024-09-26 17:38:43,034] WARNING: Missing files for frame 6, skipping.
+[2024-09-26 17:38:43,034] WARNING: Missing files for frame 7, skipping.
+[2024-09-26 17:38:45,868] INFO: Loaded 87 RGBD frames from disk.
+[2024-09-26 17:38:45,868] INFO: Processing frame 0 for registration.
+[2024-09-26 17:38:46,638] INFO: Processing frame 1 for registration.
+[2024-09-26 17:38:47,313] INFO: Processing frame 2 for registration.
+[2024-09-26 17:38:48,012] INFO: Processing frame 3 for registration.
+[2024-09-26 17:38:48,707] INFO: Processing frame 4 for registration.
+[2024-09-26 17:38:49,404] INFO: Processing frame 5 for registration.
+[2024-09-26 17:38:50,105] INFO: Processing frame 6 for registration.
+[2024-09-26 17:38:50,824] INFO: Processing frame 7 for registration.
+[2024-09-26 17:38:51,567] INFO: Processing frame 8 for registration.
+[2024-09-26 17:38:52,307] INFO: Processing frame 9 for registration.
+[2024-09-26 17:38:53,051] INFO: Processing frame 10 for registration.
+[2024-09-26 17:38:53,750] INFO: Processing frame 11 for registration.
+[2024-09-26 17:38:54,447] INFO: Processing frame 12 for registration.
+[2024-09-26 17:38:55,140] INFO: Processing frame 13 for registration.
+[2024-09-26 17:38:55,812] INFO: Processing frame 14 for registration.
+[2024-09-26 17:38:56,459] INFO: Processing frame 15 for registration.
+[2024-09-26 17:38:57,117] INFO: Processing frame 16 for registration.
+[2024-09-26 17:38:57,775] INFO: Processing frame 17 for registration.
+[2024-09-26 17:38:58,415] INFO: Processing frame 18 for registration.
+[2024-09-26 17:38:59,047] INFO: Processing frame 19 for registration.
+[2024-09-26 17:38:59,650] INFO: Processing frame 20 for registration.
+[2024-09-26 17:39:00,259] INFO: Processing frame 21 for registration.
+[2024-09-26 17:39:00,849] INFO: Processing frame 22 for registration.
+[2024-09-26 17:39:01,411] INFO: Processing frame 23 for registration.
+[2024-09-26 17:39:01,985] INFO: Processing frame 24 for registration.
+[2024-09-26 17:39:02,556] INFO: Processing frame 25 for registration.
+[2024-09-26 17:39:03,141] INFO: Processing frame 26 for registration.
+[2024-09-26 17:39:03,710] INFO: Processing frame 27 for registration.
+[2024-09-26 17:39:04,294] INFO: Processing frame 28 for registration.
+[2024-09-26 17:39:04,874] INFO: Processing frame 29 for registration.
+[2024-09-26 17:39:05,454] INFO: Processing frame 30 for registration.
+[2024-09-26 17:39:06,078] INFO: Processing frame 31 for registration.
+[2024-09-26 17:39:06,706] INFO: Processing frame 32 for registration.
+[2024-09-26 17:39:07,321] INFO: Processing frame 33 for registration.
+[2024-09-26 17:39:07,982] INFO: Processing frame 34 for registration.
+[2024-09-26 17:39:08,631] INFO: Processing frame 35 for registration.
+[2024-09-26 17:39:09,312] INFO: Processing frame 36 for registration.
+[2024-09-26 17:39:10,057] INFO: Processing frame 37 for registration.
+[2024-09-26 17:39:10,816] INFO: Processing frame 38 for registration.
+[2024-09-26 17:39:11,580] INFO: Processing frame 39 for registration.
+[2024-09-26 17:39:12,356] INFO: Processing frame 40 for registration.
+[2024-09-26 17:39:13,113] INFO: Processing frame 41 for registration.
+[2024-09-26 17:39:13,893] INFO: Processing frame 42 for registration.
+[2024-09-26 17:39:14,675] INFO: Processing frame 43 for registration.
+[2024-09-26 17:39:15,480] INFO: Processing frame 44 for registration.
+[2024-09-26 17:39:16,347] INFO: Processing frame 45 for registration.
+[2024-09-26 17:39:17,228] INFO: Processing frame 46 for registration.
+[2024-09-26 17:39:18,122] INFO: Processing frame 47 for registration.
+[2024-09-26 17:39:19,010] INFO: Processing frame 48 for registration.
+[2024-09-26 17:39:19,923] INFO: Processing frame 49 for registration.
+[2024-09-26 17:39:20,864] INFO: Processing frame 50 for registration.
+[2024-09-26 17:39:21,770] INFO: Processing frame 51 for registration.
+[2024-09-26 17:39:22,691] INFO: Processing frame 52 for registration.
+[2024-09-26 17:39:23,627] INFO: Processing frame 53 for registration.
+[2024-09-26 17:39:24,618] INFO: Processing frame 54 for registration.
+[2024-09-26 17:39:25,617] INFO: Processing frame 55 for registration.
+[2024-09-26 17:39:26,620] INFO: Processing frame 56 for registration.
+[2024-09-26 17:39:27,648] INFO: Processing frame 57 for registration.
+[2024-09-26 17:39:28,671] INFO: Processing frame 58 for registration.
+[2024-09-26 17:39:29,742] INFO: Processing frame 59 for registration.
+[2024-09-26 17:39:30,820] INFO: Processing frame 60 for registration.
+[2024-09-26 17:39:31,928] INFO: Processing frame 61 for registration.
+[2024-09-26 17:39:33,033] INFO: Processing frame 62 for registration.
+[2024-09-26 17:39:34,128] INFO: Processing frame 63 for registration.
+[2024-09-26 17:39:35,267] INFO: Processing frame 64 for registration.
+[2024-09-26 17:39:36,398] INFO: Processing frame 65 for registration.
+[2024-09-26 17:39:37,541] INFO: Processing frame 66 for registration.
+[2024-09-26 17:39:38,709] INFO: Processing frame 67 for registration.
+[2024-09-26 17:39:39,875] INFO: Processing frame 68 for registration.
+[2024-09-26 17:39:41,056] INFO: Processing frame 69 for registration.
+[2024-09-26 17:39:42,250] INFO: Processing frame 70 for registration.
+[2024-09-26 17:39:43,463] INFO: Processing frame 71 for registration.
+[2024-09-26 17:39:44,683] INFO: Processing frame 72 for registration.
+[2024-09-26 17:39:45,896] INFO: Processing frame 73 for registration.
+[2024-09-26 17:39:47,112] INFO: Processing frame 74 for registration.
+[2024-09-26 17:39:48,315] INFO: Processing frame 75 for registration.
+[2024-09-26 17:39:49,528] INFO: Processing frame 76 for registration.
+[2024-09-26 17:39:50,736] INFO: Processing frame 77 for registration.
+[2024-09-26 17:39:51,927] INFO: Processing frame 78 for registration.
+[2024-09-26 17:39:53,048] INFO: Processing frame 79 for registration.
+[2024-09-26 17:39:54,168] INFO: Processing frame 80 for registration.
+[2024-09-26 17:39:55,342] INFO: Processing frame 81 for registration.
+[2024-09-26 17:39:56,507] INFO: Processing frame 82 for registration.
+[2024-09-26 17:39:57,661] INFO: Processing frame 83 for registration.
+[2024-09-26 17:39:58,814] INFO: Processing frame 84 for registration.
+[2024-09-26 17:40:00,048] INFO: Processing frame 85 for registration.
+[2024-09-26 17:40:01,254] INFO: Processing frame 86 for registration.
+[2024-09-26 17:40:02,531] INFO: Registering frame 0 to frame 1 using feature-based registration.
+[2024-09-26 17:40:12,599] INFO: Registering frame 1 to frame 2 using feature-based registration.
+[2024-09-26 17:40:22,794] INFO: Registering frame 2 to frame 3 using feature-based registration.
+[2024-09-26 17:40:33,738] INFO: Registering frame 3 to frame 4 using feature-based registration.
+[2024-09-26 17:40:45,493] INFO: Registering frame 4 to frame 5 using feature-based registration.
+[2024-09-26 17:40:56,878] INFO: Registering frame 5 to frame 6 using feature-based registration.
+[2024-09-26 17:41:08,162] INFO: Registering frame 6 to frame 7 using feature-based registration.
+[2024-09-26 17:41:19,348] INFO: Registering frame 7 to frame 8 using feature-based registration.
+[2024-09-26 17:41:30,597] INFO: Registering frame 8 to frame 9 using feature-based registration.
+[2024-09-26 17:41:41,878] INFO: Registering frame 9 to frame 10 using feature-based registration.
+[2024-09-26 17:41:53,915] INFO: Registering frame 10 to frame 11 using feature-based registration.
+[2024-09-26 17:42:06,206] INFO: Registering frame 11 to frame 12 using feature-based registration.
+[2024-09-26 17:42:16,886] INFO: Registering frame 12 to frame 13 using feature-based registration.
+[2024-09-26 17:42:27,342] INFO: Registering frame 13 to frame 14 using feature-based registration.
+[2024-09-26 17:42:37,846] INFO: Registering frame 14 to frame 15 using feature-based registration.
+[2024-09-26 17:42:48,174] INFO: Registering frame 15 to frame 16 using feature-based registration.
+[2024-09-26 17:42:58,529] INFO: Registering frame 16 to frame 17 using feature-based registration.
+[2024-09-26 17:43:09,039] INFO: Registering frame 17 to frame 18 using feature-based registration.
+[2024-09-26 17:43:19,079] INFO: Registering frame 18 to frame 19 using feature-based registration.
+[2024-09-26 17:43:29,218] INFO: Registering frame 19 to frame 20 using feature-based registration.
+[2024-09-26 17:43:39,198] INFO: Registering frame 20 to frame 21 using feature-based registration.
+[2024-09-26 17:43:49,270] INFO: Registering frame 21 to frame 22 using feature-based registration.
+[2024-09-26 17:43:59,114] INFO: Registering frame 22 to frame 23 using feature-based registration.
+[2024-09-26 17:44:08,708] INFO: Registering frame 23 to frame 24 using feature-based registration.
+[2024-09-26 17:44:18,493] INFO: Registering frame 24 to frame 25 using feature-based registration.
+[2024-09-26 17:44:28,243] INFO: Registering frame 25 to frame 26 using feature-based registration.
+[2024-09-26 17:44:38,022] INFO: Registering frame 26 to frame 27 using feature-based registration.
+[2024-09-26 17:44:47,702] INFO: Registering frame 27 to frame 28 using feature-based registration.
+[2024-09-26 17:44:57,550] INFO: Registering frame 28 to frame 29 using feature-based registration.
+[2024-09-26 17:45:07,493] INFO: Registering frame 29 to frame 30 using feature-based registration.
+[2024-09-26 17:45:17,508] INFO: Registering frame 30 to frame 31 using feature-based registration.
+[2024-09-26 17:45:27,270] INFO: Registering frame 31 to frame 32 using feature-based registration.
+[2024-09-26 17:45:37,322] INFO: Registering frame 32 to frame 33 using feature-based registration.
+[2024-09-26 17:45:47,478] INFO: Registering frame 33 to frame 34 using feature-based registration.
+[2024-09-26 17:45:57,808] INFO: Registering frame 34 to frame 35 using feature-based registration.
+[2024-09-26 17:46:08,241] INFO: Registering frame 35 to frame 36 using feature-based registration.
+[2024-09-26 17:46:18,814] INFO: Registering frame 36 to frame 37 using feature-based registration.
+[2024-09-26 17:46:29,406] INFO: Registering frame 37 to frame 38 using feature-based registration.
+[2024-09-26 17:46:40,619] INFO: Registering frame 38 to frame 39 using feature-based registration.
+[2024-09-26 17:46:51,526] INFO: Registering frame 39 to frame 40 using feature-based registration.
+[2024-09-26 17:47:01,754] INFO: Registering frame 40 to frame 41 using feature-based registration.
+[2024-09-26 17:47:12,623] INFO: Registering frame 41 to frame 42 using feature-based registration.
+[2024-09-26 17:47:24,582] INFO: Registering frame 42 to frame 43 using feature-based registration.
+[2024-09-26 17:47:36,322] INFO: Registering frame 43 to frame 44 using feature-based registration.
+[2024-09-26 17:47:47,622] INFO: Registering frame 44 to frame 45 using feature-based registration.
+[2024-09-26 17:47:59,417] INFO: Registering frame 45 to frame 46 using feature-based registration.
+[2024-09-26 17:48:10,846] INFO: Registering frame 46 to frame 47 using feature-based registration.
+[2024-09-26 17:48:22,966] INFO: Registering frame 47 to frame 48 using feature-based registration.
+[2024-09-26 17:48:34,936] INFO: Registering frame 48 to frame 49 using feature-based registration.
+[2024-09-26 17:48:46,986] INFO: Registering frame 49 to frame 50 using feature-based registration.
+[2024-09-26 17:48:59,052] INFO: Registering frame 50 to frame 51 using feature-based registration.
+[2024-09-26 17:49:10,059] INFO: Registering frame 51 to frame 52 using feature-based registration.
+[2024-09-26 17:49:22,302] INFO: Registering frame 52 to frame 53 using feature-based registration.
+[2024-09-26 17:49:34,434] INFO: Registering frame 53 to frame 54 using feature-based registration.
+[2024-09-26 17:49:46,938] INFO: Registering frame 54 to frame 55 using feature-based registration.
+[2024-09-26 17:49:59,731] INFO: Registering frame 55 to frame 56 using feature-based registration.
+[2024-09-26 17:50:11,946] INFO: Registering frame 56 to frame 57 using feature-based registration.
+[2024-09-26 17:50:24,506] INFO: Registering frame 57 to frame 58 using feature-based registration.
+[2024-09-26 17:50:37,130] INFO: Registering frame 58 to frame 59 using feature-based registration.
+[2024-09-26 17:50:49,846] INFO: Registering frame 59 to frame 60 using feature-based registration.
+[2024-09-26 17:51:02,784] INFO: Registering frame 60 to frame 61 using feature-based registration.
+[2024-09-26 17:51:15,717] INFO: Registering frame 61 to frame 62 using feature-based registration.
+[2024-09-26 17:51:28,800] INFO: Registering frame 62 to frame 63 using feature-based registration.
+[2024-09-26 17:51:41,880] INFO: Registering frame 63 to frame 64 using feature-based registration.
+[2024-09-26 17:51:55,250] INFO: Registering frame 64 to frame 65 using feature-based registration.
+[2024-09-26 17:52:08,666] INFO: Registering frame 65 to frame 66 using feature-based registration.
+[2024-09-26 17:52:22,600] INFO: Registering frame 66 to frame 67 using feature-based registration.
+[2024-09-26 17:52:38,239] INFO: Registering frame 67 to frame 68 using feature-based registration.
+[2024-09-26 17:52:52,302] INFO: Registering frame 68 to frame 69 using feature-based registration.
+[2024-09-26 17:53:06,722] INFO: Registering frame 69 to frame 70 using feature-based registration.
+[2024-09-26 17:53:21,222] INFO: Registering frame 70 to frame 71 using feature-based registration.
+[2024-09-26 17:53:36,030] INFO: Registering frame 71 to frame 72 using feature-based registration.
+[2024-09-26 17:53:50,706] INFO: Registering frame 72 to frame 73 using feature-based registration.
+[2024-09-26 17:54:05,634] INFO: Registering frame 73 to frame 74 using feature-based registration.
+[2024-09-26 17:54:19,686] INFO: Registering frame 74 to frame 75 using feature-based registration.
+[2024-09-26 17:54:33,946] INFO: Registering frame 75 to frame 76 using feature-based registration.
+[2024-09-26 17:54:48,298] INFO: Registering frame 76 to frame 77 using feature-based registration.
+[2024-09-26 17:55:02,814] INFO: Registering frame 77 to frame 78 using feature-based registration.
+[2024-09-26 17:55:15,894] INFO: Registering frame 78 to frame 79 using feature-based registration.
+[2024-09-26 17:55:29,478] INFO: Registering frame 79 to frame 80 using feature-based registration.
+[2024-09-26 17:55:42,898] INFO: Registering frame 80 to frame 81 using feature-based registration.
+[2024-09-26 17:55:56,718] INFO: Registering frame 81 to frame 82 using feature-based registration.
+[2024-09-26 17:56:10,138] INFO: Registering frame 82 to frame 83 using feature-based registration.
+[2024-09-26 17:56:23,846] INFO: Registering frame 83 to frame 84 using feature-based registration.
+[2024-09-26 17:56:37,866] INFO: Registering frame 84 to frame 85 using feature-based registration.
+[2024-09-26 17:56:51,690] INFO: Registering frame 85 to frame 86 using feature-based registration.
+[2024-09-26 17:57:06,757] INFO: Optimizing pose graph...
+[2024-09-26 17:57:06,761] INFO: Pose graph optimization complete.
+[2024-09-26 17:57:06,776] INFO: Integrating RGBD frames into TSDF volume...
+[2024-09-26 17:57:17,399] INFO: TSDF integration complete.
+[2024-09-26 17:57:17,399] INFO: Extracting mesh from TSDF volume...
+[2024-09-26 17:57:20,846] INFO: Mesh extraction complete.
+[2024-09-26 17:57:21,120] INFO: Saved mesh with colors to output/output_mesh_20240926_175720.ply
+[2024-09-26 17:57:21,120] INFO: 3D Scanning ended at 2024-09-26 17:57:21
+[2024-09-26 17:57:21,120] INFO: Total duration: 0:20:06.895154

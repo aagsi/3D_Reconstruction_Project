@@ -1,0 +1,143 @@
+[2024-09-26 17:30:48,242] INFO: 3D Scanning started at 2024-09-26 17:30:48
+[2024-09-26 17:30:48,485] INFO: Camera intrinsics retrieved successfully.
+[2024-09-26 17:30:48,486] INFO: Scanning started. Press Enter to stop...
+[2024-09-26 17:30:49,722] INFO: Current FPS: 0.81
+[2024-09-26 17:30:51,514] INFO: Current FPS: 1.12
+[2024-09-26 17:30:53,292] INFO: Current FPS: 1.12
+[2024-09-26 17:30:55,062] INFO: Current FPS: 1.13
+[2024-09-26 17:30:56,869] INFO: Current FPS: 1.11
+[2024-09-26 17:30:58,656] INFO: Current FPS: 1.12
+[2024-09-26 17:31:00,405] INFO: Current FPS: 1.14
+[2024-09-26 17:31:02,138] INFO: Current FPS: 1.15
+[2024-09-26 17:31:03,799] INFO: Current FPS: 1.20
+[2024-09-26 17:31:05,442] INFO: Current FPS: 1.22
+[2024-09-26 17:31:07,024] INFO: Current FPS: 1.26
+[2024-09-26 17:31:08,715] INFO: Current FPS: 1.18
+[2024-09-26 17:31:10,300] INFO: Current FPS: 1.26
+[2024-09-26 17:31:11,934] INFO: Current FPS: 1.22
+[2024-09-26 17:31:13,600] INFO: Current FPS: 1.20
+[2024-09-26 17:31:15,265] INFO: Current FPS: 1.20
+[2024-09-26 17:31:16,967] INFO: Current FPS: 1.18
+[2024-09-26 17:31:18,780] INFO: Current FPS: 1.10
+[2024-09-26 17:31:20,532] INFO: Current FPS: 1.14
+[2024-09-26 17:31:22,286] INFO: Current FPS: 1.14
+[2024-09-26 17:31:24,075] INFO: Current FPS: 1.12
+[2024-09-26 17:31:25,862] INFO: Current FPS: 1.12
+[2024-09-26 17:31:27,706] INFO: Current FPS: 1.09
+[2024-09-26 17:31:29,576] INFO: Current FPS: 1.07
+[2024-09-26 17:31:31,470] INFO: Current FPS: 1.06
+[2024-09-26 17:31:33,341] INFO: Current FPS: 1.07
+[2024-09-26 17:31:35,230] INFO: Current FPS: 1.06
+[2024-09-26 17:31:37,222] INFO: Current FPS: 1.00
+[2024-09-26 17:31:38,251] INFO: Current FPS: 0.97
+[2024-09-26 17:31:39,266] INFO: Current FPS: 0.99
+[2024-09-26 17:31:40,267] INFO: Current FPS: 1.00
+[2024-09-26 17:31:41,295] INFO: Current FPS: 0.97
+[2024-09-26 17:31:43,215] INFO: Current FPS: 1.04
+[2024-09-26 17:31:44,403] INFO: Current FPS: 0.84
+[2024-09-26 17:31:45,428] INFO: Current FPS: 0.98
+[2024-09-26 17:31:46,490] INFO: Current FPS: 0.94
+[2024-09-26 17:31:47,619] INFO: Current FPS: 0.89
+[2024-09-26 17:31:48,766] INFO: Current FPS: 0.87
+[2024-09-26 17:31:49,900] INFO: Current FPS: 0.88
+[2024-09-26 17:31:50,956] INFO: Current FPS: 0.95
+[2024-09-26 17:31:52,003] INFO: Current FPS: 0.95
+[2024-09-26 17:31:53,213] INFO: Current FPS: 0.83
+[2024-09-26 17:31:54,327] INFO: Current FPS: 0.90
+[2024-09-26 17:31:55,360] INFO: Current FPS: 0.97
+[2024-09-26 17:31:57,162] INFO: Current FPS: 1.11
+[2024-09-26 17:31:58,901] INFO: Current FPS: 1.15
+[2024-09-26 17:31:59,209] INFO: Scanning stopped.
+[2024-09-26 17:31:59,209] WARNING: Missing files for frame 0, skipping.
+[2024-09-26 17:31:59,210] WARNING: Missing files for frame 1, skipping.
+[2024-09-26 17:31:59,210] WARNING: Missing files for frame 2, skipping.
+[2024-09-26 17:31:59,210] WARNING: Missing files for frame 3, skipping.
+[2024-09-26 17:31:59,210] WARNING: Missing files for frame 4, skipping.
+[2024-09-26 17:31:59,210] WARNING: Missing files for frame 5, skipping.
+[2024-09-26 17:31:59,211] WARNING: Missing files for frame 6, skipping.
+[2024-09-26 17:31:59,211] WARNING: Missing files for frame 7, skipping.
+[2024-09-26 17:32:01,719] INFO: Loaded 76 RGBD frames from disk.
+[2024-09-26 17:32:01,720] INFO: Registering frame 0 to frame 1 using RGB-D odometry.
+[2024-09-26 17:32:02,985] INFO: Registering frame 1 to frame 2 using RGB-D odometry.
+[2024-09-26 17:32:04,280] INFO: Registering frame 2 to frame 3 using RGB-D odometry.
+[2024-09-26 17:32:05,580] INFO: Registering frame 3 to frame 4 using RGB-D odometry.
+[2024-09-26 17:32:06,887] INFO: Registering frame 4 to frame 5 using RGB-D odometry.
+[2024-09-26 17:32:08,174] INFO: Registering frame 5 to frame 6 using RGB-D odometry.
+[2024-09-26 17:32:09,478] INFO: Registering frame 6 to frame 7 using RGB-D odometry.
+[2024-09-26 17:32:10,686] INFO: Registering frame 7 to frame 8 using RGB-D odometry.
+[2024-09-26 17:32:11,990] INFO: Registering frame 8 to frame 9 using RGB-D odometry.
+[2024-09-26 17:32:13,282] INFO: Registering frame 9 to frame 10 using RGB-D odometry.
+[2024-09-26 17:32:14,606] INFO: Registering frame 10 to frame 11 using RGB-D odometry.
+[2024-09-26 17:32:15,918] INFO: Registering frame 11 to frame 12 using RGB-D odometry.
+[2024-09-26 17:32:17,246] INFO: Registering frame 12 to frame 13 using RGB-D odometry.
+[2024-09-26 17:32:18,474] INFO: Registering frame 13 to frame 14 using RGB-D odometry.
+[2024-09-26 17:32:19,738] INFO: Registering frame 14 to frame 15 using RGB-D odometry.
+[2024-09-26 17:32:21,010] INFO: Registering frame 15 to frame 16 using RGB-D odometry.
+[2024-09-26 17:32:22,326] INFO: Registering frame 16 to frame 17 using RGB-D odometry.
+[2024-09-26 17:32:23,642] INFO: Registering frame 17 to frame 18 using RGB-D odometry.
+[2024-09-26 17:32:24,921] INFO: Registering frame 18 to frame 19 using RGB-D odometry.
+[2024-09-26 17:32:26,222] INFO: Registering frame 19 to frame 20 using RGB-D odometry.
+[2024-09-26 17:32:27,542] INFO: Registering frame 20 to frame 21 using RGB-D odometry.
+[2024-09-26 17:32:28,838] INFO: Registering frame 21 to frame 22 using RGB-D odometry.
+[2024-09-26 17:32:30,185] INFO: Registering frame 22 to frame 23 using RGB-D odometry.
+[2024-09-26 17:32:31,514] INFO: Registering frame 23 to frame 24 using RGB-D odometry.
+[2024-09-26 17:32:32,822] INFO: Registering frame 24 to frame 25 using RGB-D odometry.
+[2024-09-26 17:32:34,114] INFO: Registering frame 25 to frame 26 using RGB-D odometry.
+[2024-09-26 17:32:35,405] INFO: Registering frame 26 to frame 27 using RGB-D odometry.
+[2024-09-26 17:32:36,690] INFO: Registering frame 27 to frame 28 using RGB-D odometry.
+[2024-09-26 17:32:37,992] INFO: Registering frame 28 to frame 29 using RGB-D odometry.
+[2024-09-26 17:32:39,530] INFO: Registering frame 29 to frame 30 using RGB-D odometry.
+[2024-09-26 17:32:40,846] INFO: Registering frame 30 to frame 31 using RGB-D odometry.
+[2024-09-26 17:32:42,178] INFO: Registering frame 31 to frame 32 using RGB-D odometry.
+[2024-09-26 17:32:43,506] INFO: Registering frame 32 to frame 33 using RGB-D odometry.
+[2024-09-26 17:32:44,826] INFO: Registering frame 33 to frame 34 using RGB-D odometry.
+[2024-09-26 17:32:46,138] INFO: Registering frame 34 to frame 35 using RGB-D odometry.
+[2024-09-26 17:32:47,458] INFO: Registering frame 35 to frame 36 using RGB-D odometry.
+[2024-09-26 17:32:48,788] INFO: Registering frame 36 to frame 37 using RGB-D odometry.
+[2024-09-26 17:32:50,122] INFO: Registering frame 37 to frame 38 using RGB-D odometry.
+[2024-09-26 17:32:51,438] INFO: Registering frame 38 to frame 39 using RGB-D odometry.
+[2024-09-26 17:32:52,730] INFO: Registering frame 39 to frame 40 using RGB-D odometry.
+[2024-09-26 17:32:54,022] INFO: Registering frame 40 to frame 41 using RGB-D odometry.
+[2024-09-26 17:32:55,286] INFO: Registering frame 41 to frame 42 using RGB-D odometry.
+[2024-09-26 17:32:56,562] INFO: Registering frame 42 to frame 43 using RGB-D odometry.
+[2024-09-26 17:32:57,726] INFO: Registering frame 43 to frame 44 using RGB-D odometry.
+[2024-09-26 17:32:59,034] INFO: Registering frame 44 to frame 45 using RGB-D odometry.
+[2024-09-26 17:33:00,350] INFO: Registering frame 45 to frame 46 using RGB-D odometry.
+[2024-09-26 17:33:01,650] INFO: Registering frame 46 to frame 47 using RGB-D odometry.
+[2024-09-26 17:33:02,962] INFO: Registering frame 47 to frame 48 using RGB-D odometry.
+[2024-09-26 17:33:04,278] INFO: Registering frame 48 to frame 49 using RGB-D odometry.
+[2024-09-26 17:33:05,578] INFO: Registering frame 49 to frame 50 using RGB-D odometry.
+[2024-09-26 17:33:06,894] INFO: Registering frame 50 to frame 51 using RGB-D odometry.
+[2024-09-26 17:33:08,198] INFO: Registering frame 51 to frame 52 using RGB-D odometry.
+[2024-09-26 17:33:09,494] INFO: Registering frame 52 to frame 53 using RGB-D odometry.
+[2024-09-26 17:33:10,782] INFO: Registering frame 53 to frame 54 using RGB-D odometry.
+[2024-09-26 17:33:12,034] INFO: Registering frame 54 to frame 55 using RGB-D odometry.
+[2024-09-26 17:33:13,311] INFO: Registering frame 55 to frame 56 using RGB-D odometry.
+[2024-09-26 17:33:14,638] INFO: Registering frame 56 to frame 57 using RGB-D odometry.
+[2024-09-26 17:33:15,986] INFO: Registering frame 57 to frame 58 using RGB-D odometry.
+[2024-09-26 17:33:17,282] INFO: Registering frame 58 to frame 59 using RGB-D odometry.
+[2024-09-26 17:33:18,586] INFO: Registering frame 59 to frame 60 using RGB-D odometry.
+[2024-09-26 17:33:19,855] INFO: Registering frame 60 to frame 61 using RGB-D odometry.
+[2024-09-26 17:33:21,114] INFO: Registering frame 61 to frame 62 using RGB-D odometry.
+[2024-09-26 17:33:22,414] INFO: Registering frame 62 to frame 63 using RGB-D odometry.
+[2024-09-26 17:33:23,694] INFO: Registering frame 63 to frame 64 using RGB-D odometry.
+[2024-09-26 17:33:24,989] INFO: Registering frame 64 to frame 65 using RGB-D odometry.
+[2024-09-26 17:33:26,254] INFO: Registering frame 65 to frame 66 using RGB-D odometry.
+[2024-09-26 17:33:27,522] INFO: Registering frame 66 to frame 67 using RGB-D odometry.
+[2024-09-26 17:33:28,826] INFO: Registering frame 67 to frame 68 using RGB-D odometry.
+[2024-09-26 17:33:30,074] INFO: Registering frame 68 to frame 69 using RGB-D odometry.
+[2024-09-26 17:33:31,326] INFO: Registering frame 69 to frame 70 using RGB-D odometry.
+[2024-09-26 17:33:32,556] INFO: Registering frame 70 to frame 71 using RGB-D odometry.
+[2024-09-26 17:33:33,818] INFO: Registering frame 71 to frame 72 using RGB-D odometry.
+[2024-09-26 17:33:35,066] INFO: Registering frame 72 to frame 73 using RGB-D odometry.
+[2024-09-26 17:33:36,290] INFO: Registering frame 73 to frame 74 using RGB-D odometry.
+[2024-09-26 17:33:37,530] INFO: Registering frame 74 to frame 75 using RGB-D odometry.
+[2024-09-26 17:33:38,782] INFO: Optimizing pose graph...
+[2024-09-26 17:33:38,785] INFO: Pose graph optimization complete.
+[2024-09-26 17:33:38,785] INFO: Integrating RGBD frames into TSDF volume...
+[2024-09-26 17:33:47,710] INFO: TSDF integration complete.
+[2024-09-26 17:33:47,710] INFO: Extracting mesh from TSDF volume...
+[2024-09-26 17:33:48,469] INFO: Mesh extraction complete.
+[2024-09-26 17:33:48,528] INFO: Saved mesh with colors to output/output_mesh_20240926_173348.ply
+[2024-09-26 17:33:48,529] INFO: 3D Scanning ended at 2024-09-26 17:33:48
+[2024-09-26 17:33:48,529] INFO: Total duration: 0:03:00.286397

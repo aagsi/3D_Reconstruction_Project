@@ -3,32 +3,119 @@
 """
 Stereo Camera Calibration and Real-Time Depth Mapping
 
-This script performs real-time stereo image processing to compute and display a depth map.
+This script performs real-time stereo image processing to compute and display a disparity (depth) map.
 It utilizes pre-calibrated stereo camera parameters to rectify images and compute depth information.
 
 Dependencies:
 - OpenCV
 - NumPy
-- Custom modules:
-    - Camera.jetsonCam (ensure this module is available)
-    - cv2.ximgproc (for advanced stereo algorithms)
 
 Usage:
 - Ensure that calibration files (`jetson_stereo_8MP_stereo.npz`, `jetson_stereo_8MP_c1.npz`, `jetson_stereo_8MP_c2.npz`) are available.
 - Run the script to start real-time depth mapping.
 
 Author: akhil_kk
-Improved by: [Your Name]
 Date: [Current Date]
 """
 
 import cv2
 import numpy as np
 import os
+import threading
 import time
 
-# Import custom camera module
-import Camera.jetsonCam as jetCam
+# ----------------------- Jetson Camera Implementation ----------------------- #
+
+def gstreamer_pipeline(
+    sensor_id=0,
+    sensor_mode=3,
+    capture_width=1280,
+    capture_height=720,
+    display_width=1280,
+    display_height=720,
+    framerate=30,
+    flip_method=0,
+):
+    return (
+        "nvarguscamerasrc sensor-id=%d sensor-mode=%d ! "
+        "video/x-raw(memory:NVMM), "
+        "width=(int)%d, height=(int)%d, "
+        "format=(string)NV12, framerate=(fraction)%d/1 ! "
+        "nvvidconv flip-method=%d ! "
+        "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
+        "videoconvert ! "
+        "video/x-raw, format=(string)BGR ! appsink"
+        % (
+            sensor_id,
+            sensor_mode,
+            capture_width,
+            capture_height,
+            framerate,
+            flip_method,
+            display_width,
+            display_height,
+        )
+    )
+
+class jetsonCam:
+    def __init__(self):
+        # Initialize instance variables
+        self.video_capture = None
+        self.frame = None
+        self.grabbed = False
+        self.read_thread = None
+        self.read_lock = threading.Lock()
+        self.running = False
+
+    def open(self, **arg):
+        try:
+            self.video_capture = cv2.VideoCapture(
+                gstreamer_pipeline(**arg), cv2.CAP_GSTREAMER
+            )
+        except RuntimeError:
+            self.video_capture = None
+            print("Unable to open camera")
+            return
+        # Grab the first frame to start the video capturing
+        self.grabbed, self.frame = self.video_capture.read()
+
+    def start(self):
+        if self.running:
+            print('Video capturing is already running')
+            return None
+        if self.video_capture is not None:
+            self.running = True
+            self.read_thread = threading.Thread(target=self.updateCamera)
+            self.read_thread.start()
+        return self
+
+    def stop(self):
+        self.running = False
+        if self.read_thread is not None:
+            self.read_thread.join()
+
+    def updateCamera(self):
+        while self.running:
+            try:
+                grabbed, frame = self.video_capture.read()
+                with self.read_lock:
+                    self.grabbed = grabbed
+                    self.frame = frame
+            except RuntimeError:
+                print("Could not read image from camera")
+
+    def read(self):
+        with self.read_lock:
+            frame = self.frame.copy() if self.frame is not None else None
+            grabbed = self.grabbed
+        return grabbed, frame
+
+    def release(self):
+        if self.video_capture is not None:
+            self.video_capture.release()
+            self.video_capture = None
+        if self.read_thread is not None:
+            self.read_thread.join()
 
 # ----------------------- Utility Functions ----------------------- #
 
@@ -74,8 +161,8 @@ def initialize_cameras():
     - cam_left: Left camera object
     - cam_right: Right camera object
     """
-    cam_left = jetCam.jetsonCam()
-    cam_right = jetCam.jetsonCam()
+    cam_left = jetsonCam()
+    cam_right = jetsonCam()
     
     # Open left camera (sensor_id=1)
     cam_left.open(
@@ -128,12 +215,9 @@ def compute_rectification_maps(calib_params, image_size):
         mtx2, dist2, R2, P2, image_size, cv2.CV_16SC2)
     return map_left_x, map_left_y, map_right_x, map_right_y
 
-def initialize_stereo_matcher(mode=cv2.STEREO_SGBM_MODE_SGBM_3WAY):
+def initialize_stereo_matcher():
     """
     Initialize the StereoSGBM matcher and WLS filter for disparity computation.
-
-    Parameters:
-    - mode: Stereo matching mode (e.g., cv2.STEREO_SGBM_MODE_SGBM_3WAY)
 
     Returns:
     - stereo_matcher: StereoSGBM matcher object
@@ -158,7 +242,7 @@ def initialize_stereo_matcher(mode=cv2.STEREO_SGBM_MODE_SGBM_3WAY):
         speckleWindowSize=0,
         speckleRange=2,
         preFilterCap=63,
-        mode=mode
+        mode=cv2.STEREO_SGBM_MODE_SGBM_3WAY
     )
 
     # Create right matcher for WLS filter
@@ -198,7 +282,6 @@ def display_help():
     print("Press 'w/s' to increase/decrease number of disparities.")
     print("Press 'e/d' to increase/decrease WLS lambda.")
     print("Press 'r/f' to increase/decrease WLS sigma color.")
-    print("Press 't/g' to switch to faster/slower stereo mode.")
     print("Press 'h' to display this help message again.\n")
 
 # ----------------------- Main Processing Function ----------------------- #
@@ -229,15 +312,7 @@ def main():
         map_left_x, map_left_y, map_right_x, map_right_y = compute_rectification_maps(calib_params, image_size)
 
         # Initialize stereo matcher and WLS filter
-        stereo_modes = [
-            (cv2.STEREO_SGBM_MODE_SGBM_3WAY, 'STEREO_SGBM_MODE_SGBM_3WAY'),
-            (cv2.STEREO_SGBM_MODE_SGBM, 'STEREO_SGBM_MODE_SGBM'),
-            (cv2.STEREO_SGBM_MODE_HH, 'STEREO_SGBM_MODE_HH')
-        ]
-        stereo_mode_index = 0  # Start with SGBM_3WAY
-        current_mode, mode_name = stereo_modes[stereo_mode_index]
-        stereo_matcher, right_matcher, wls_filter = initialize_stereo_matcher(mode=current_mode)
-        print(f"Stereo mode set to: {mode_name}")
+        stereo_matcher, right_matcher, wls_filter = initialize_stereo_matcher()
 
         # Display help information
         display_help()
@@ -266,20 +341,11 @@ def main():
 
             # Apply WLS filter to refine disparity map
             filtered_disparity = wls_filter.filter(disparity_left, gray_left, None, disparity_right)
+            filtered_disparity = cv2.normalize(filtered_disparity, None, 0, 255, cv2.NORM_MINMAX)
+            filtered_disparity = np.uint8(filtered_disparity)
 
-            # Reproject to 3D space
-            points_3D = cv2.reprojectImageTo3D(filtered_disparity.astype(np.float32) / 16.0, calib_params['Q'])
-
-            # Extract the Z coordinate (depth)
-            depth_map = points_3D[:, :, 2]
-
-            # Handle infinite and NaN values
-            mask_map = (filtered_disparity > filtered_disparity.min())
-            depth_map = np.where(mask_map, depth_map, 0)
-
-            # Normalize depth map for visualization
-            depth_map_visual = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX)
-            depth_map_visual = np.uint8(depth_map_visual)
+            # Apply colormap for visualization
+            depth_colormap = cv2.applyColorMap(filtered_disparity, cv2.COLORMAP_JET)
 
             # Draw horizontal lines on rectified images for visualization
             rectified_combined = cv2.hconcat([rectified_left, rectified_right])
@@ -287,13 +353,10 @@ def main():
 
             # Resize images for display
             display_rectified = cv2.resize(rectified_with_lines, (0, 0), fx=0.6, fy=0.6)
-            display_depth = cv2.resize(depth_map_visual, (0, 0), fx=0.6, fy=0.6)
-
-            # Convert depth map to BGR for display
-            display_depth_bgr = cv2.cvtColor(display_depth, cv2.COLOR_GRAY2BGR)
+            display_depth = cv2.resize(depth_colormap, (0, 0), fx=0.6, fy=0.6)
 
             # Concatenate rectified images and depth map side by side
-            display_combined = cv2.hconcat([display_rectified, display_depth_bgr])
+            display_combined = cv2.hconcat([display_rectified, display_depth])
 
             # Display the combined image
             cv2.imshow('Stereo Rectification and Depth Map', display_combined)
@@ -357,18 +420,6 @@ def main():
                 new_sigma = max(0.1, current_sigma - 0.1)
                 wls_filter.setSigmaColor(new_sigma)
                 print(f"WLS Sigma Color decreased to: {wls_filter.getSigmaColor()}")
-            elif key == ord('t'):
-                # Switch to faster mode
-                stereo_mode_index = (stereo_mode_index + 1) % len(stereo_modes)
-                current_mode, mode_name = stereo_modes[stereo_mode_index]
-                stereo_matcher, right_matcher, wls_filter = initialize_stereo_matcher(mode=current_mode)
-                print(f"Stereo mode changed to: {mode_name}")
-            elif key == ord('g'):
-                # Switch to slower but more accurate mode
-                stereo_mode_index = (stereo_mode_index - 1) % len(stereo_modes)
-                current_mode, mode_name = stereo_modes[stereo_mode_index]
-                stereo_matcher, right_matcher, wls_filter = initialize_stereo_matcher(mode=current_mode)
-                print(f"Stereo mode changed to: {mode_name}")
             elif key == ord('h'):
                 # Display help
                 display_help()
